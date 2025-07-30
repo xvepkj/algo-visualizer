@@ -6,6 +6,7 @@
 #include "algorithms/bubble_sort.hpp"
 #include "algorithms/selection_sort.hpp"
 #include "algorithms/insertion_sort.hpp"
+#include "algorithms/merge_sort.hpp"
 #include "bar_draw.hpp"
 
 int main() {
@@ -18,8 +19,8 @@ int main() {
     std::srand(static_cast<unsigned>(std::time(nullptr)));
     for (int &v : values) v = std::rand() % 500 + 50;
 
-    InsertionSortStepper sorter;
-    DrawFunc drawFunc = drawBars;
+    MergeSortStepper sorter(numBars);
+    MergeDrawFunc drawFunc = drawMergeBars;
     
     bool running = true;
     int frameCount = 0;
@@ -39,7 +40,7 @@ int main() {
 
             // Draw the bars
             window.clear();
-            drawFunc(window, values, sorter.getCurrentIndex(), sorter.getCurrentComparisonIndex());
+            drawFunc(window, values, sorter.getLeft(), sorter.getMid(), sorter.getRight(), sorter.getCurrentIndex());
             window.display();
         }
     
