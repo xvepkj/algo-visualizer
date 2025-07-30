@@ -1,6 +1,19 @@
 #pragma once
 #include "sort_stepper.hpp"
 
+/*
+    Short insertion sort algorithm:
+    
+    for i from 1 to n-1
+        key = values[i]
+        j = i - 1
+        while j >= 0 and values[j] > key
+            values[j + 1] = values[j]
+            j--
+        values[j + 1] = key
+
+*/
+
 class InsertionSortStepper : public SortStepper {
     int i = 1, j = 0, key = 0;
     bool inserting = false;

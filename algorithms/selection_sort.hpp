@@ -1,6 +1,16 @@
 #pragma once
 #include "sort_stepper.hpp"
+/*
+    Short selection sort algorithm:
 
+    for i from 0 to n-1
+        minIndex = i
+        for j from i+1 to n-1
+            if values[j] < values[minIndex]
+                minIndex = j
+        swap(values[i], values[minIndex])
+
+*/
 class SelectionSortStepper : public SortStepper {
     int i = 0, j = 0;
 public:
