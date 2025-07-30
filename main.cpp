@@ -5,6 +5,7 @@
 #include <ctime>
 #include "algorithms/bubble_sort.hpp"
 #include "algorithms/selection_sort.hpp"
+#include "algorithms/insertion_sort.hpp"
 #include "bar_draw.hpp"
 
 int main() {
@@ -17,7 +18,7 @@ int main() {
     std::srand(static_cast<unsigned>(std::time(nullptr)));
     for (int &v : values) v = std::rand() % 500 + 50;
 
-    BubbleSortStepper sorter;
+    InsertionSortStepper sorter;
     DrawFunc drawFunc = drawBars;
     
     bool running = true;
